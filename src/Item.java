@@ -1,8 +1,9 @@
 public class Item {
 	
-	private String id,name,category;
+	private String name,category;
+	private int id;
 	
-	public Item(String id, String name, String category) {
+	public Item(int id, String name, String category) {
 		this.id = id;
 		this.name = name;
 		this.category = category;
@@ -10,7 +11,7 @@ public class Item {
 	
 	// Setters are not needed.
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
