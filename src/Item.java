@@ -1,7 +1,8 @@
 public class Item {
 	
-	private String name,category;
-	private int id;
+	private final String name;
+    private final String category;
+	private final int id;
 	
 	public Item(int id, String name, String category) {
 		this.id = id;
