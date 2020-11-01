@@ -10,8 +10,6 @@ public class Item {
 		this.category = category;
 	}
 	
-	// Setters are not needed.
-	
 	public int getId() {
 		return id;
 	}
