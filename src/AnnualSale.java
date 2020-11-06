@@ -1,9 +1,9 @@
 public class AnnualSale {
 	
-	int sizeOfArray;
+	private int sizeOfArray;
 	
 	public AnnualSale(int numberOfItems) {
-		sizeOfArray = numberOfItems;
+		this.sizeOfArray = numberOfItems;
 	}
 
 	ItemTransaction[] annualSale = new ItemTransaction[sizeOfArray];
