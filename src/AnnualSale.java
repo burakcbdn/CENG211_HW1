@@ -6,14 +6,14 @@ public class AnnualSale {
 		this.sizeOfArray = numberOfItems;
 	}
 
-	ItemTransaction[] annualSale = new ItemTransaction[sizeOfArray];
+	private ItemTransaction[] annualSale = new ItemTransaction[sizeOfArray];
 	
-	void addAnnualSale(ItemTransaction itemTransaction, int itemId) {
+	public void addAnnualSale(ItemTransaction itemTransaction, int itemId) {
 		annualSale[itemId] = itemTransaction;
 	}
 	
-	ItemTransaction[] getAnnualSale() {
-		return annualSale;
+	public ItemTransaction getAnnualSale(int itemId) {
+		return annualSale[itemId];
 	}
 	
 }

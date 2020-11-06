@@ -1,17 +1,21 @@
 public class ItemTransaction {
     
-    int numberOfStores;
-    int numberOfMonths;
+    private int numberOfStores;
+    private int numberOfMonths;
 
     ItemTransaction(int numberOfStores, int numberOfMonths){
         this.numberOfStores = numberOfStores;
         this.numberOfMonths = numberOfMonths;    
     }
     
-    Transaction[][] itemTransaction = new Transaction[numberOfStores][numberOfMonths];
+    private Transaction[][] itemTransaction = new Transaction[numberOfStores][numberOfMonths];
     
-    void addItemTransaction(Transaction transaction, int storeNumber, int monthNumber) {
+    public void addTransactionItem(Transaction transaction, int storeNumber, int monthNumber) {
     	itemTransaction[storeNumber][monthNumber] = transaction;
+    }
+    
+    public Transaction getItemTransaction(int numberOfStores, int numberOfMonths){
+    	return itemTransaction[numberOfStores][numberOfMonths];
     }
     
 }
