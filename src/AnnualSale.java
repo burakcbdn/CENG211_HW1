@@ -1,6 +1,12 @@
 public class AnnualSale {
 	
-	ItemTransaction[] annualSale = new ItemTransaction[33];
+	int sizeOfArray;
+	
+	public AnnualSale(int numberOfItems) {
+		sizeOfArray = numberOfItems;
+	}
+
+	ItemTransaction[] annualSale = new ItemTransaction[sizeOfArray];
 	
 	void addAnnualSale(ItemTransaction itemTransaction, int itemId) {
 		annualSale[itemId] = itemTransaction;
@@ -9,4 +15,5 @@ public class AnnualSale {
 	ItemTransaction[] getAnnualSale() {
 		return annualSale;
 	}
+	
 }
