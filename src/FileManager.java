@@ -12,10 +12,10 @@ public class FileManager {
     }
 
     
-    public String[][] readFile() {
+    public String[][] readFile(int numberOfItems) {
         String line;
         int index = 0;
-        String[][] lines = new String[32][]; //32 is the amount of items
+        String[][] lines = new String[numberOfItems][]; 
         try {
             //parsing a CSV file into BufferedReader class constructor
             FileReader fileReader = new FileReader(filePath);
