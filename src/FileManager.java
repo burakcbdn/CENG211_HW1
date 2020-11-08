@@ -4,27 +4,30 @@ import java.io.IOException;
 
 public class FileManager {
 
-    String filePath;
+    private final String filePath;
 
 
     FileManager(String filePath) {
         this.filePath = filePath;
     }
 
-
-    public void readFile() {
+    
+    public String[][] readFile() {
         String line;
-        String[] lines;
+        int index = 0;
+        String[][] lines = new String[32][]; //32 is the amount of items
         try {
             //parsing a CSV file into BufferedReader class constructor
             FileReader fileReader = new FileReader(filePath);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             while ((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);
+            	lines[index++] = line.split(",");
             }
+            bufferedReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return lines;
     }
 
 }
