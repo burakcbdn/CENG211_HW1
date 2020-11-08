@@ -14,7 +14,7 @@ public class ItemTransaction {
     
     public void addTransactionItem(Transaction transaction, int storeNumber, int monthNumber) {
     	// Subtracted 1 from index because it should be [2][8] for 3rd store - September
-    	itemTransaction[storeNumber -1][monthNumber-1] = transaction; 
+    	itemTransaction[storeNumber-1][monthNumber-1] = transaction; 
     }
     
     public Transaction getItemTransaction(int numberOfStores, int numberOfMonths){

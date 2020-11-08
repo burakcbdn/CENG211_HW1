@@ -14,7 +14,7 @@ public class ChainStoreApp {
    
         
         FileManager transactionsFileManager1 = new FileManager("HW1_Transactions_Store1.csv");
-        String[][] transactions1 = transactionsFileManager1.readFile(numberOfItems,0); //0 is the category index for transactions.csv
+        String[][] transactions1 = transactionsFileManager1.readFile(numberOfItems); //0 is the category index for transactions.csv
         //transactions1 = [null,[1, 0.28, 1.45, 565, 0.27, 1.34 444],[0.27, 1.34, 444],[],[],[]]
         //transactions[categoryId][index]
         System.out.println(transactions1[1][36]);
@@ -29,15 +29,18 @@ public class ChainStoreApp {
      
         AnnualSale annualSale = new AnnualSale(numberOfItems);
         
+        ItemTransaction itemTransaction;
+        Item item;
+        
         for(int i = 1; i < numberOfItems; i++) {
         	
         	int itemId = Integer.parseInt(items[i][1]); //id index is 1
         	String itemName = items[i][0]; //name index is 0
         	String itemCategory = items[i][2]; // category index is 2
         	
-        	Item item = new Item(itemId, itemName, itemCategory);
+        	item = new Item(itemId, itemName, itemCategory);
         	
-        	ItemTransaction itemTransaction = new ItemTransaction(item, numberOfStores, numberOfMonths);
+        	itemTransaction = new ItemTransaction(item, numberOfStores, numberOfMonths);
         	
         	double purchasePrice;
         	double salePrice;
