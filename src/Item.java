@@ -4,7 +4,8 @@ public class Item {
     private final String category;
 	private final int id;
 	
-	public Item(int id, String name, String category) { this.id = id;
+	public Item(int id, String name, String category) { 
+		this.id = id;
 		this.name = name;
 		this.category = category;
 	}
