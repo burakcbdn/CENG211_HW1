@@ -2,9 +2,9 @@ public class Transaction {
 	
 	private final double purchasePrice;
 	private final double salePrice;
-	private final double numberOfSales;
+	private final int numberOfSales;
 	
-	public Transaction(double purchasePrice, double salePrice, double numberOfSales) {
+	public Transaction(double purchasePrice, double salePrice, int numberOfSales) {
 		this.purchasePrice = purchasePrice;
 		this.salePrice = salePrice;
 		this.numberOfSales = numberOfSales;
@@ -18,7 +18,7 @@ public class Transaction {
 		return salePrice;
 	}
 
-	public double getNumberOfSales() {
+	public int getNumberOfSales() {
 		return numberOfSales;
 	}
 	
