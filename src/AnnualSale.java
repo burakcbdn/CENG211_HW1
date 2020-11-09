@@ -1,12 +1,12 @@
 public class AnnualSale {
 	
-	private int sizeOfArray;
+	private ItemTransaction[] annualSale;
 	
 	public AnnualSale(int numberOfItems) {
-		this.sizeOfArray = numberOfItems;
+		 annualSale = new ItemTransaction[numberOfItems];
 	}
 
-	private ItemTransaction[] annualSale = new ItemTransaction[sizeOfArray];
+	
 	
 	public void addAnnualSale(ItemTransaction itemTransaction, int itemId) {
 		annualSale[itemId] = itemTransaction;
