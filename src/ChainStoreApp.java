@@ -32,11 +32,11 @@ public class ChainStoreApp {
         ItemTransaction itemTransaction;
         Item item;
         
-        for(int i = 1; i < numberOfItems; i++) {
+        for(int categoryIndex = 1; categoryIndex < numberOfItems; categoryIndex++) {
         	
-        	int itemId = Integer.parseInt(items[i][1]); //id index is 1
-        	String itemName = items[i][0]; //name index is 0
-        	String itemCategory = items[i][2]; // category index is 2
+        	int itemId = Integer.parseInt(items[categoryIndex][1]); //itemId index is 1
+        	String itemName = items[categoryIndex][0]; //itemName index is 0
+        	String itemCategory = items[categoryIndex][2]; // itemCategory index in 
         	
         	item = new Item(itemId, itemName, itemCategory);
         	
@@ -47,31 +47,31 @@ public class ChainStoreApp {
         	int numberOfSales;
         	int monthCounter = 1;
         	
-        	for(int a = 1; a < (numberOfMonths * 3) +1 ;) {   // 37 column in transaction.csv
-        		 purchasePrice = Double.parseDouble(transactions1[i][a++]); //i'th category
-        		 salePrice = Double.parseDouble(transactions1[i][a++]);
-        		 numberOfSales = Integer.parseInt(transactions1[i][a++]);
+        	for(int columnNumber = 1; columnNumber < (numberOfMonths * 3) +1 ;) {   // 37 column in transaction.csv
+        		 purchasePrice = Double.parseDouble(transactions1[categoryIndex][columnNumber++]); //i'th category
+        		 salePrice = Double.parseDouble(transactions1[categoryIndex][columnNumber++]);
+        		 numberOfSales = Integer.parseInt(transactions1[categoryIndex][columnNumber++]);
         		 itemTransaction.addTransactionItem( new Transaction(purchasePrice, salePrice, numberOfSales), 1, monthCounter);
         		 
-        		 a -= 3;
+        		 columnNumber -= 3;
         		 
-        		 purchasePrice = Double.parseDouble(transactions2[i][a++]); //i'th category
-        		 salePrice = Double.parseDouble(transactions2[i][a++]);
-        		 numberOfSales = Integer.parseInt(transactions2[i][a++]);
+        		 purchasePrice = Double.parseDouble(transactions2[categoryIndex][columnNumber++]); 
+        		 salePrice = Double.parseDouble(transactions2[categoryIndex][columnNumber++]);
+        		 numberOfSales = Integer.parseInt(transactions2[categoryIndex][columnNumber++]);
         		 itemTransaction.addTransactionItem( new Transaction(purchasePrice, salePrice, numberOfSales), 2, monthCounter);
         		 
-        		 a -= 3;
+        		 columnNumber -= 3;
         		 
-        		 purchasePrice = Double.parseDouble(transactions3[i][a++]); //i'th category
-        		 salePrice = Double.parseDouble(transactions3[i][a++]);
-        		 numberOfSales = Integer.parseInt(transactions3[i][a++]);
+        		 purchasePrice = Double.parseDouble(transactions3[categoryIndex][columnNumber++]); 
+        		 salePrice = Double.parseDouble(transactions3[categoryIndex][columnNumber++]);
+        		 numberOfSales = Integer.parseInt(transactions3[categoryIndex][columnNumber++]);
         		 itemTransaction.addTransactionItem( new Transaction(purchasePrice, salePrice, numberOfSales), 3, monthCounter);
         		 
-        		 a -= 3;
+        		 columnNumber -= 3;
         		 
-        		 purchasePrice = Double.parseDouble(transactions4[i][a++]); //i'th category
-        		 salePrice = Double.parseDouble(transactions4[i][a++]);
-        		 numberOfSales = Integer.parseInt(transactions4[i][a++]);
+        		 purchasePrice = Double.parseDouble(transactions4[categoryIndex][columnNumber++]);
+        		 salePrice = Double.parseDouble(transactions4[categoryIndex][columnNumber++]);
+        		 numberOfSales = Integer.parseInt(transactions4[categoryIndex][columnNumber++]);
         		 itemTransaction.addTransactionItem( new Transaction(purchasePrice, salePrice, numberOfSales), 4, monthCounter++);
         		 
         		 
