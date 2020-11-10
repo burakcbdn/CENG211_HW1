@@ -4,20 +4,20 @@ public class ChainStoreApp {
     public static void main(String[] args){
         System.out.println("Welcome to Chain Store");
         
-        int numberOfMonths = 12;
+        int numberOfMonths = 12; 
         int numberOfStores = 4;
-        int numberOfItems = 33; //This can be found by reading Items.csv again.
+        int numberOfItems;
         
         FileManager itemFileManager = new FileManager("HW1_Items.csv");
         String[][] items = itemFileManager.readFile(1);  //1 is the category Index for items.csv
         //items = [null,[Water,1,Beverage],[Coke,2,Beverage],[],[]]
-   
+        numberOfItems = itemFileManager.getFileLineCount();
         
         FileManager transactionsFileManager1 = new FileManager("HW1_Transactions_Store1.csv");
         String[][] transactions1 = transactionsFileManager1.readFile(); //0 is the category index for transactions.csv
         //transactions1 = [null,[1, 0.28, 1.45, 565, 0.27, 1.34 444],[0.27, 1.34, 444],[],[],[]]
         //transactions[categoryId][index]
-        System.out.println(transactions1[1][36]);
+       
         FileManager transactionsFileManager2 = new FileManager("HW1_Transactions_Store2.csv"); 
         String[][] transactions2 = transactionsFileManager2.readFile();  //default categorIndex parameter is 0
         
