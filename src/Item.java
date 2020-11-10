@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Item {
 	
 	private final String name;
@@ -9,7 +11,8 @@ public class Item {
 		this.name = name;
 		this.category = category;
 	}
-	
+
+
 	public int getId() {
 		return id;
 	}
@@ -21,5 +24,28 @@ public class Item {
 	public String getCategory() {
 		return category;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Item{" +
+				"name='" + name + '\'' +
+				", category='" + category + '\'' +
+				", id=" + id +
+				'}';
+	}
+
+	@Override
+	public boolean equals(Object otherItem) {
+		if (this == otherItem) return true;
+		if (otherItem == null || getClass() != otherItem.getClass()) return false;
+		Item item = (Item) otherItem;
+		return id == item.id &&
+				Objects.equals(name, item.name) &&
+				Objects.equals(category, item.category);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, category, id);
+	}
 }

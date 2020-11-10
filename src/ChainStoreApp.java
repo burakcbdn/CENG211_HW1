@@ -9,23 +9,23 @@ public class ChainStoreApp {
         int numberOfItems = 33; //This can be found by reading Items.csv again.
         
         FileManager itemFileManager = new FileManager("HW1_Items.csv");
-        String[][] items = itemFileManager.readFile(numberOfItems, 1);  //1 is the category Index for items.csv
+        String[][] items = itemFileManager.readFile(1);  //1 is the category Index for items.csv
         //items = [null,[Water,1,Beverage],[Coke,2,Beverage],[],[]]
    
         
         FileManager transactionsFileManager1 = new FileManager("HW1_Transactions_Store1.csv");
-        String[][] transactions1 = transactionsFileManager1.readFile(numberOfItems); //0 is the category index for transactions.csv
+        String[][] transactions1 = transactionsFileManager1.readFile(); //0 is the category index for transactions.csv
         //transactions1 = [null,[1, 0.28, 1.45, 565, 0.27, 1.34 444],[0.27, 1.34, 444],[],[],[]]
         //transactions[categoryId][index]
         System.out.println(transactions1[1][36]);
         FileManager transactionsFileManager2 = new FileManager("HW1_Transactions_Store2.csv"); 
-        String[][] transactions2 = transactionsFileManager2.readFile(numberOfItems);  //default categorIndex parameter is 0
+        String[][] transactions2 = transactionsFileManager2.readFile();  //default categorIndex parameter is 0
         
         FileManager transactionsFileManager3= new FileManager("HW1_Transactions_Store3.csv");
-        String[][] transactions3 = transactionsFileManager3.readFile(numberOfItems);
+        String[][] transactions3 = transactionsFileManager3.readFile();
         
         FileManager transactionsFileManager4 = new FileManager("HW1_Transactions_Store4.csv");
-        String[][] transactions4 = transactionsFileManager4.readFile(numberOfItems);
+        String[][] transactions4 = transactionsFileManager4.readFile();
      
         AnnualSale annualSale = new AnnualSale(numberOfItems);
         
