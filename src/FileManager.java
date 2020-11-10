@@ -61,10 +61,9 @@ public class FileManager {
         return lines;
     }
 
-    public  void parseFile(String[][] transactions, String[][] items){
+    public AnnualSale parseFile(String[][] transactions, String[][] items, int numberOfMonths){
 
-        AnnualSale annualSale = new AnnualSale(numberOfItems);
-        int numberOfMonths = 12;
+        AnnualSale annualSale = new AnnualSale(numberOfItems);      
 
         for(int categoryIndex = 1; categoryIndex < numberOfItems; categoryIndex++) {
 
@@ -92,6 +91,7 @@ public class FileManager {
             annualSale.addAnnualSale(itemTransaction, itemId);
 
         }
+        return annualSale;
     }
 
 }
