@@ -16,13 +16,12 @@ public class FileManager {
     // This is not efficient (Reading file 2 times) but since we have to use array, this is required
     public int getFileLineCount() {
         int count = 0;
+        
         try {
             FileReader fileReader = new FileReader(filePath);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String line = bufferedReader.readLine();
-            while (line != null) {
+            while ((bufferedReader.readLine()) != null) {
                 count += 1;
-                line = bufferedReader.readLine();
             }
 
             bufferedReader.close();
@@ -38,12 +37,9 @@ public class FileManager {
     }
 
     public String[][] readFile(int categoryIndex) {
-
-
-
-
-        String line;
+    	String line;
         int index;
+        
         String[][] lines = new String[numberOfItems + 1][];
 
         try {
