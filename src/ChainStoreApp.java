@@ -47,8 +47,8 @@ public class ChainStoreApp {
         	int numberOfSales;
         	int monthCounter = 1;
         	
-        	for(int columnNumber = 1; columnNumber < (numberOfMonths * 3) +1 ;) {   // 37 column in transaction.csv
-        		 purchasePrice = Double.parseDouble(transactions1[categoryIndex][columnNumber++]); //i'th category
+        	for(int columnNumber = 1; columnNumber < (numberOfMonths * 3) +1 ;) {   // 12*3+1=37 column in transaction.csv
+        		 purchasePrice = Double.parseDouble(transactions1[categoryIndex][columnNumber++]); 
         		 salePrice = Double.parseDouble(transactions1[categoryIndex][columnNumber++]);
         		 numberOfSales = Integer.parseInt(transactions1[categoryIndex][columnNumber++]);
         		 itemTransaction.addTransactionItem( new Transaction(purchasePrice, salePrice, numberOfSales), 1, monthCounter);
@@ -79,5 +79,6 @@ public class ChainStoreApp {
         	annualSale.addAnnualSale(itemTransaction, itemId);
         	
         }
+        System.out.println(annualSale.getAnnualSale(10).getItemTransaction(2, 5).getNumberOfSales()); //317
     }
 }

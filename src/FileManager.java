@@ -9,8 +9,8 @@ public class FileManager {
 
 
     FileManager(String filePath) {
-        this.numberOfItems = getFileLineCount();
         this.filePath = filePath;
+        this.numberOfItems = getFileLineCount();
     }
 
     // This is not efficient (Reading file 2 times) but since we have to use array, this is required
