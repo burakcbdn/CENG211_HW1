@@ -81,6 +81,8 @@ public class ChainStoreApp {
         	annualSale.addAnnualSale(itemTransaction, itemId);
         	
         }
-        System.out.println(annualSale.getAnnualSale(10).getItemTransaction(2, 5).getNumberOfSales()); //317
+        
+        StoreQuery storeQuery = new StoreQuery(numberOfItems, annualSale, numberOfStores, numberOfMonths);
+        storeQuery.mostProfitableItem(); // first question
     }
 }
