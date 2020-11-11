@@ -47,6 +47,8 @@ public class ChainStoreApp {
         	int numberOfSales;
         	int monthCounter = 1;
         	
+        	
+        	
         	for(int columnNumber = 1; columnNumber < (numberOfMonths * 3) +1 ;) {   // 12*3+1=37 column in transaction.csv
         		 purchasePrice = Double.parseDouble(transactions1[categoryIndex][columnNumber++]); 
         		 salePrice = Double.parseDouble(transactions1[categoryIndex][columnNumber++]);
