@@ -38,4 +38,12 @@ public class StoreQuery {
 		
 		System.out.println(annualSale.getAnnualSale(itemId).getItem());
 	}
+	
+	public void bestSellerItem() {
+		
+	}
+	
+	public void mostProfitableStore() {
+		
+	}
 }
