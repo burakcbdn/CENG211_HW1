@@ -1,5 +1,3 @@
-import java.io.File;
-
 public class ChainStoreApp {
     public static void main(String[] args){
         System.out.println("Welcome to Chain Store");
@@ -83,6 +81,6 @@ public class ChainStoreApp {
         }
         
         StoreQuery storeQuery = new StoreQuery(numberOfItems, annualSale, numberOfStores, numberOfMonths);
-        storeQuery.mostProfitableItem(); // first question
+        storeQuery.getMostProfitableItem(); // first question
     }
 }

@@ -18,7 +18,7 @@ public class StoreQuery {
 		return (transaction.getSalePrice() - transaction.getPurchasePrice()) * transaction.getNumberOfSales();
 	}
 
-	public void mostProfitableItem(){
+	public void getMostProfitableItem(){
 		double mostProfit = 0;
 		double tempProfit = 0;
 		int itemId = 1;
@@ -38,6 +38,7 @@ public class StoreQuery {
 		
 		System.out.println(annualSale.getAnnualSale(itemId).getItem());
 	}
+
 	
 	public void bestSellerItem() {
 		
@@ -46,4 +47,22 @@ public class StoreQuery {
 	public void mostProfitableStore() {
 		
 	}
+
+
+	public void getMostProfitableCategory(){
+
+    }
+
+    public void getLeastProfitableItem(){
+
+    }
+
+    public void  getLeastProfitableCategory(){
+
+    }
+
+    public void getMostProfitableItemForSingleSale(){
+
+    }
+    
 }
