@@ -20,27 +20,51 @@ public class StoreQuery {
 		return (transaction.getSalePrice() - transaction.getPurchasePrice()) * transaction.getNumberOfSales();
 	}
 
+
 	public void getMostProfitableItem(){
-		double mostProfit = 0;
-		double tempProfit = 0;
-		int itemId = 1;
-		for(int indexID = 1; indexID < numberOfItems; indexID++) {	//index is 1 for itemId 1
-			for(int storeNo = 0; storeNo < numberOfStores; storeNo++ ) {  //index is 0 for store1
-				for(int monthNo = 0; monthNo < numberOfMonths; monthNo++) { //index is 0 for 1st month
-					tempProfit += calculateProfit(annualSale.getAnnualSale(indexID).getItemTransaction(storeNo, monthNo));						
-					}
-				}
-			if(tempProfit > mostProfit) {
-				mostProfit = tempProfit;
-				itemId = indexID;
-			}
-			tempProfit = 0;
-					
-		}
-		
-		System.out.println(annualSale.getAnnualSale(itemId).getItem());
+	    sortProfit("most");
 	}
 
+	public void mostProfitableStore() {
+		
+	}
+
+	public void getMostProfitableCategory(){
+
+    }
+
+    public void getLeastProfitableItem(){
+        sortProfit("least");
+    }
+
+    private  void sortProfit(String type){
+
+        double mostProfit = 0;
+        double tempProfit = 0;
+        int itemId = 1;
+        for(int indexID = 1; indexID < numberOfItems; indexID++) {	//index is 1 for itemId 1
+            for(int storeNo = 0; storeNo < numberOfStores; storeNo++ ) {  //index is 0 for store1
+                for(int monthNo = 0; monthNo < numberOfMonths; monthNo++) { //index is 0 for 1st month
+                    tempProfit += calculateProfit(annualSale.getAnnualSale(indexID).getItemTransaction(storeNo, monthNo));
+                }
+            }
+            if (type.equals("most")){
+                if (tempProfit > mostProfit) {
+                    mostProfit = tempProfit;
+                    itemId = indexID;
+                }
+                tempProfit = 0;
+            } else if (type.equals("least")){
+                if (tempProfit < mostProfit) {
+                    mostProfit = tempProfit;
+                    itemId = indexID;
+                }
+                tempProfit = 0;
+            }
+        }
+
+        System.out.println(annualSale.getAnnualSale(itemId).getItem());
+    }
 	
 	public void getBestSellerItem() {
 		int numberOfSales = 0;
@@ -68,26 +92,6 @@ public class StoreQuery {
 	public void getMostProfitableStore() {
 		
 	}
-
-
-	public void getMostProfitableCategory(){	
-		
-		for(int indexID = 1; indexID < numberOfItems; indexID++) {	//index is 1 for itemId 1
-			for(int storeNo = 0; storeNo < numberOfStores; storeNo++ ) {  //index is 0 for store1
-				for(int monthNo = 0; monthNo < numberOfMonths; monthNo++) { //index is 0 for 1st month
-											
-					}
-				}
-			
-			
-					
-		}
-
-    }
-
-    public void getLeastProfitableItem(){
-
-    }
 
     public void  getLeastProfitableCategory(){
 
