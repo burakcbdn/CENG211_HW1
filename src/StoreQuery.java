@@ -1,3 +1,5 @@
+import java.util.Map;
+
 public class StoreQuery {
 	
 	
@@ -40,16 +42,46 @@ public class StoreQuery {
 	}
 
 	
-	public void bestSellerItem() {
+	public void getBestSellerItem() {
+		int numberOfSales = 0;
+		int tempNumberOfSales = 0;
+		int itemId = 1;
+		for(int indexID = 1; indexID < numberOfItems; indexID++) {	//index is 1 for itemId 1
+			for(int storeNo = 0; storeNo < numberOfStores; storeNo++ ) {  //index is 0 for store1
+				for(int monthNo = 0; monthNo < numberOfMonths; monthNo++) { //index is 0 for 1st month
+					tempNumberOfSales += annualSale.getAnnualSale(indexID).getItemTransaction(storeNo, monthNo).getNumberOfSales();				
+					}
+				}
+			if (tempNumberOfSales > numberOfSales) {
+				numberOfSales = tempNumberOfSales;
+				itemId = indexID;
+			}
+			
+			tempNumberOfSales = 0;
+			
+					
+		}
 		
+		System.out.println(annualSale.getAnnualSale(itemId).getItem());
 	}
 	
-	public void mostProfitableStore() {
+	public void getMostProfitableStore() {
 		
 	}
 
 
-	public void getMostProfitableCategory(){
+	public void getMostProfitableCategory(){	
+		
+		for(int indexID = 1; indexID < numberOfItems; indexID++) {	//index is 1 for itemId 1
+			for(int storeNo = 0; storeNo < numberOfStores; storeNo++ ) {  //index is 0 for store1
+				for(int monthNo = 0; monthNo < numberOfMonths; monthNo++) { //index is 0 for 1st month
+											
+					}
+				}
+			
+			
+					
+		}
 
     }
 

@@ -82,5 +82,8 @@ public class ChainStoreApp {
         
         StoreQuery storeQuery = new StoreQuery(numberOfItems, annualSale, numberOfStores, numberOfMonths);
         storeQuery.getMostProfitableItem(); // first question
+        
+        
+       
     }
 }
