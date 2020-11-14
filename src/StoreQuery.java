@@ -21,12 +21,11 @@ public class StoreQuery{
         return (transaction.getSalePrice() - transaction.getPurchasePrice()) * transaction.getNumberOfSales();
     }
 
-
     public void getMostProfitableItem() {
         sortProfit("most");
     }
 
-    public void mostProfitableStore() {
+    public void getMostProfitableStore() {
         double mostProfit = 0;
         int itemId = 1;
         int[] mostProfitableStoresForEachMonth = new int[12];
@@ -161,12 +160,6 @@ public class StoreQuery{
 
         System.out.println(annualSale.getAnnualSale(itemId).getItem());
     }
-
-    public void getMostProfitableStore() {
-
-    }
-
-    
 
     public void getMostProfitableItemForSingleSale() {
 
