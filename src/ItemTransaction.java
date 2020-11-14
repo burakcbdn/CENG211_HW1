@@ -4,7 +4,7 @@ import java.util.Objects;
 public class ItemTransaction {
     
 
-    public Item item;
+    private Item item;
     private final Transaction[][] itemTransactions;
 
     ItemTransaction(Item item, int numberOfStores, int numberOfMonths){
@@ -18,7 +18,7 @@ public class ItemTransaction {
 
     public void addTransactionItem(Transaction transaction, int storeNumber, int month) {
     	// Subtracted 1 from index because it should be [2][8] for 3rd store - September
-    	itemTransactions[storeNumber-1][month-1] = transaction;
+    	itemTransactions[storeNumber][month] = transaction;
     }
     
     public Transaction getItemTransaction(int storeNumber, int month){

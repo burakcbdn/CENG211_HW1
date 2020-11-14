@@ -3,7 +3,7 @@ public class AnnualSale {
 	private ItemTransaction[] annualSale;
 	
 	public AnnualSale(int numberOfItems) {
-		 annualSale = new ItemTransaction[numberOfItems];
+		 annualSale = new ItemTransaction[numberOfItems+1];
 	}
 
 	

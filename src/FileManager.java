@@ -61,38 +61,6 @@ public class FileManager {
         return lines;
     }
 
-    public AnnualSale parseFile(String[][] transactions, String[][] items, int numberOfMonths){
-
-        AnnualSale annualSale = new AnnualSale(numberOfItems);      
-
-        for(int categoryIndex = 1; categoryIndex < numberOfItems; categoryIndex++) {
-
-            int itemId = Integer.parseInt(items[categoryIndex][1]); //itemId index is 1
-            String itemName = items[categoryIndex][0]; //itemName index is 0
-            String itemCategory = items[categoryIndex][2]; // itemCategory index in
-
-            Item item = new Item(itemId, itemName, itemCategory);
-
-            ItemTransaction itemTransaction = new ItemTransaction(item, 4, numberOfMonths);
-
-            double purchasePrice;
-            double salePrice;
-            int numberOfSales;
-            int monthCounter = 1;
-
-            for(int columnNumber = 1; columnNumber < (numberOfMonths * 3) +1 ;) {   // 37 column in transaction.csv
-                purchasePrice = Double.parseDouble(transactions[categoryIndex][columnNumber++]); //i'th category
-                salePrice = Double.parseDouble(transactions[categoryIndex][columnNumber++]);
-                numberOfSales = Integer.parseInt(transactions[categoryIndex][columnNumber++]);
-                itemTransaction.addTransactionItem( new Transaction(purchasePrice, salePrice, numberOfSales), 1, monthCounter);
-
-                columnNumber -= 3;
-            }
-            annualSale.addAnnualSale(itemTransaction, itemId);
-
-        }
-        return annualSale;
-    }
     
 
 
