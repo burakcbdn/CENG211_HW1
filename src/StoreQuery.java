@@ -27,11 +27,11 @@ public class StoreQuery {
 
     public void getMostProfitableStoreForEachMonth() {
         double mostProfit = 0;
-        int itemId = 1;
-        int[] mostProfitableStoresForEachMonth = new int[12];
+        double storeProfit = 0;
+        int[] mostProfitableStoresForEachMonth = new int[numberOfMonths];
+        
         for (int monthNo = 0; monthNo < numberOfMonths; monthNo++) {    //index is 1 for itemId 1
             for (int storeNo = 0; storeNo < numberOfStores; storeNo++) {  //index is 0 for store1
-                double storeProfit = 0;
                 for (int indexID = 1; indexID < numberOfItems; indexID++) { //index is 0 for 1st month
 
                     storeProfit += calculateProfit(annualSale.getAnnualSale(indexID).getItemTransaction(storeNo, monthNo));
@@ -79,7 +79,7 @@ public class StoreQuery {
         return hashTable;
     }
 
-    private String sortCategoryProfit(String type) {
+    public String sortCategoryProfit(String type) {
         String category = null;
         String tempCategory;
         double mostProfit = 0;
