@@ -1,3 +1,5 @@
+import sun.jvm.hotspot.gc.g1.HeapRegionSetBase;
+
 public class ChainStoreApp {
     public static void main(String[] args){
     	System.out.println("=======================================");
@@ -88,19 +90,28 @@ public class ChainStoreApp {
         
         /// Query 1
         storeQuery.sortProfit("Most");
+        setBorder();
         // Query 2
         storeQuery.sortCategoryProfit("Most");
+        setBorder();
         // Query 3
         storeQuery.sortProfit("Least");
+        setBorder();
         // Query 4
         storeQuery.sortCategoryProfit("Least");
+        setBorder();
         // Query 5
         storeQuery.getMostProfitableItemForSingleSale();
+        setBorder();
         // Query 6
         storeQuery.getBestSellerItem();
+        setBorder();
         // Query 7
         storeQuery.getMostProfitableStoreForEachMonth();
         
         
+    }
+    private static void setBorder() {
+    	System.out.println("**************************************************");
     }
 }

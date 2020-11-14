@@ -114,6 +114,7 @@ public class StoreQuery {
       
         System.out.println(type + " profitable category is " + category);
 
+
     }
 
    
@@ -146,6 +147,7 @@ public class StoreQuery {
         }
 
         System.out.println(type + " profitable item is " + annualSale.getAnnualSale(itemId).getItem());
+      
     }
 
     public void getBestSellerItem() {
