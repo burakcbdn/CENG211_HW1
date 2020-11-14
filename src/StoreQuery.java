@@ -17,7 +17,7 @@ public class StoreQuery {
         this.numberOfMonths = numberOfMonths;
     }
 
-    public double calculateProfit(Transaction transaction) {
+    private double calculateProfit(Transaction transaction) {
         return (transaction.getSalePrice() - transaction.getPurchasePrice()) * transaction.getNumberOfSales();
     }
 
@@ -25,7 +25,7 @@ public class StoreQuery {
         sortProfit("most");
     }
 
-    public void getMostProfitableStore() {
+    public void getMostProfitableStoreForEachMonth() {
         double mostProfit = 0;
         int itemId = 1;
         int[] mostProfitableStoresForEachMonth = new int[12];
@@ -49,7 +49,7 @@ public class StoreQuery {
 
     }
 
-    public Hashtable<String, Double> getCategoryMap() {
+    private Hashtable<String, Double> getCategoryMap() {
 
         String category;
         Hashtable<String, Double> hashTable = new Hashtable<String, Double>();
@@ -60,7 +60,7 @@ public class StoreQuery {
         return hashTable;
     }
 
-    public Hashtable<String, Double> getCategoryProfitsMap() {
+    private Hashtable<String, Double> getCategoryProfitsMap() {
 
         Hashtable<String, Double> hashTable = getCategoryMap();
         String category;
@@ -79,7 +79,7 @@ public class StoreQuery {
         return hashTable;
     }
 
-    public String sortCategoryProfit(String type) {
+    private String sortCategoryProfit(String type) {
         String category = null;
         String tempCategory;
         double mostProfit = 0;
