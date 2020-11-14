@@ -59,6 +59,7 @@ public class StoreQuery {
 
     private void sortProfit(String type) {
         double mostProfit = 0;
+        double leastProfit = Double.MAX_VALUE;
         double tempProfit = 0;
         int itemId = 1;
         for(int indexID = 1; indexID < numberOfItems; indexID++) {	//index is 1 for itemId 1
@@ -74,8 +75,8 @@ public class StoreQuery {
                 }
                 tempProfit = 0;
             } else if (type.equals("least")){
-                if (tempProfit < mostProfit) {
-                    mostProfit = tempProfit;
+                if (tempProfit < leastProfit) {
+                    leastProfit = tempProfit;
                     itemId = indexID;
                 }
                 tempProfit = 0;
