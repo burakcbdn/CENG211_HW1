@@ -4,7 +4,7 @@ import java.util.Hashtable;
 public class StoreQuery {
 
 
-    private final AnnualSale annualSale;
+    private AnnualSale annualSale = null;
     private final int numberOfItems;
     private final int numberOfStores;
     private final int numberOfMonths;
@@ -32,16 +32,20 @@ public class StoreQuery {
             for (int storeNo = 0; storeNo < numberOfStores; storeNo++) {  //index is 0 for store1
                 for (int indexID = 1; indexID < numberOfItems; indexID++) { //index is 0 for 1st month
 
-                    storeProfit += calculateProfit(annualSale.getAnnualSale(indexID).getItemTransaction(storeNo, monthNo));
+                    storeProfit += calculateProfit(annualSale.getAnnualSale(indexID).getItemTransaction(storeNo, monthNo));                    
+                    
                 }
 
                 if (storeProfit > mostProfit) {
+                	
                     mostProfit = storeProfit;
                     mostProfitableStoresForEachMonth[monthNo] = storeNo;
                 }
                 storeProfit = 0;
             }
-            System.out.println("Most profitable store for the month " + monthNo + " is store " + mostProfitableStoresForEachMonth[monthNo]);
+           
+            System.out.println("Most profitable store for the month " + monthNo + " is store " + (mostProfitableStoresForEachMonth[monthNo]+1));
+            mostProfit = 0;
         }
 
 
@@ -55,6 +59,7 @@ public class StoreQuery {
             category = annualSale.getAnnualSale(indexID).getItem().getCategory();
             hashTable.put(category, (double) 0);
         }
+   
         return hashTable;
     }
 
@@ -67,11 +72,12 @@ public class StoreQuery {
         for (int indexID = 1; indexID < numberOfItems; indexID++) {    //index is 1 for itemId 1
             for (int storeNo = 0; storeNo < numberOfStores; storeNo++) {  //index is 0 for store1
                 for (int monthNo = 0; monthNo < numberOfMonths; monthNo++) { //index is 0 for 1st month
-                    profit += annualSale.getAnnualSale(indexID).getItemTransaction(storeNo, monthNo).getNumberOfSales();
+                    profit += calculateProfit(annualSale.getAnnualSale(indexID).getItemTransaction(storeNo, monthNo));
                 }
             }
             category = annualSale.getAnnualSale(indexID).getItem().getCategory();
-            hashTable.replace(category, profit + hashTable.get(category));
+            hashTable.replace(category, (profit + hashTable.get(category)));
+            
             profit = 0;
         }
         return hashTable;
@@ -89,16 +95,23 @@ public class StoreQuery {
             tempCategory = categories.nextElement();
 
             if (type.equals("Most")) {
+            	
                 if (hashTable.get(tempCategory) > mostProfit) {
                     category = tempCategory;
+                    mostProfit = hashTable.get(tempCategory);
+                    
                 }
 
             } else if (type.equals("Least")) {
+            	
                 if (hashTable.get(tempCategory) < leastProfit) {
-                    category = tempCategory;
+                    category = tempCategory;                   
+                    leastProfit = hashTable.get(tempCategory);
+                    
                 }
             }
         }
+      
         System.out.println(type + " profitable category is " + category);
 
     }

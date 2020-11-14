@@ -28,8 +28,8 @@ public class ChainStoreApp {
 
         AnnualSale annualSale = new AnnualSale(numberOfItems);
 
-        ItemTransaction itemTransaction;
-        Item item;
+        ItemTransaction itemTransaction = null;
+        Item item = null ;
 
         for(int itemIdIndex = 1; itemIdIndex < numberOfItems +1; itemIdIndex++) {
 
