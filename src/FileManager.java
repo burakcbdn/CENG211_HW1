@@ -31,10 +31,7 @@ public class FileManager {
         return count;
     }
 
-    public String[][] readFile() {
-        // default parameter
-        return readFile(0);
-    }
+   
 
     public String[][] readFile(int categoryIndex) {
     	String line;

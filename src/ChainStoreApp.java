@@ -10,22 +10,21 @@ public class ChainStoreApp {
 
         FileManager itemFileManager = new FileManager("HW1_Items.csv");
         String[][] items = itemFileManager.readFile(1);  //1 is the category Index for items.csv
-        //items = [null,[Water,1,Beverage],[Coke,2,Beverage],[],[]]
+        
         numberOfItems = itemFileManager.getFileLineCount();
 
         FileManager transactionsFileManager1 = new FileManager("HW1_Transactions_Store1.csv");
-        String[][] transactions1 = transactionsFileManager1.readFile(); //0 is the category index for transactions.csv
-        //transactions1 = [null,[1, 0.28, 1.45, 565, 0.27, 1.34 444],[0.27, 1.34, 444],[],[],[]]
-        //transactions[categoryId][index]
+        String[][] transactions1 = transactionsFileManager1.readFile(0); //0 is the category index for transactions.csv
+        
 
         FileManager transactionsFileManager2 = new FileManager("HW1_Transactions_Store2.csv");
-        String[][] transactions2 = transactionsFileManager2.readFile();  //default categorIndex parameter is 0
+        String[][] transactions2 = transactionsFileManager2.readFile(0);  
 
         FileManager transactionsFileManager3= new FileManager("HW1_Transactions_Store3.csv");
-        String[][] transactions3 = transactionsFileManager3.readFile();
+        String[][] transactions3 = transactionsFileManager3.readFile(0);
 
         FileManager transactionsFileManager4 = new FileManager("HW1_Transactions_Store4.csv");
-        String[][] transactions4 = transactionsFileManager4.readFile();
+        String[][] transactions4 = transactionsFileManager4.readFile(0);
 
         AnnualSale annualSale = new AnnualSale(numberOfItems);
 
@@ -46,8 +45,6 @@ public class ChainStoreApp {
             double salePrice;
             int numberOfSales;
             int monthCounter = 0;
-
-
 
             for(int columnNumber = 1; columnNumber < (numberOfMonths * 3) +1 ;) {   // 12*3+1=37 column in transaction.csv
                 purchasePrice = Double.parseDouble(transactions1[itemIdIndex][columnNumber++]);
@@ -90,13 +87,13 @@ public class ChainStoreApp {
         StoreQuery storeQuery = new StoreQuery(numberOfItems, annualSale, numberOfStores, numberOfMonths);
         
         /// Query 1
-        storeQuery.getMostProfitableItem();
+        storeQuery.sortProfit("Most");
         // Query 2
-        storeQuery.sortCategoryProfit("most");
+        storeQuery.sortCategoryProfit("Most");
         // Query 3
-        storeQuery.getLeastProfitableItem();
+        storeQuery.sortProfit("Least");
         // Query 4
-        storeQuery.sortCategoryProfit("least");
+        storeQuery.sortCategoryProfit("Least");
         // Query 5
         storeQuery.getMostProfitableItemForSingleSale();
         // Query 6
