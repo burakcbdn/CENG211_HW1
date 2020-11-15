@@ -174,7 +174,11 @@ public class StoreQuery {
 
         System.out.println("Best Seller Item is " + annualSale.getAnnualSale(itemId).getItem());
     }
-
+    
+    private double calculateSingleSaleProfit(Transaction transaction) {
+    	return transaction.getSalePrice() - transaction.getPurchasePrice();
+    }
+    
     public void getMostProfitableItemForSingleSale() {
     
         double mostProfit = 0;
@@ -183,7 +187,7 @@ public class StoreQuery {
         for (int monthNo = 0; monthNo < numberOfMonths; monthNo++) {    //index is 1 for itemId 1
             for (int storeNo = 0; storeNo < numberOfStores; storeNo++) {  //index is 0 for store1
                 for (int indexID = 1; indexID < numberOfItems; indexID++) { //index is 0 for 1st month
-                    tempProfit = calculateProfit(annualSale.getAnnualSale(indexID).getItemTransaction(storeNo, monthNo));
+                    tempProfit = calculateSingleSaleProfit(annualSale.getAnnualSale(indexID).getItemTransaction(storeNo, monthNo));
                     if (tempProfit > mostProfit) {
                     
                         mostProfit = tempProfit;
