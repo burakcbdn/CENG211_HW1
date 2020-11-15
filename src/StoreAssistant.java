@@ -101,9 +101,7 @@ public class StoreAssistant {
         storeQuery.getMostProfitableStoreForEachMonth();
     }
 
-    private void startQuery(){
-
-    }
+   
 
     private static void setBorder() {
         System.out.println("**************************************************");
