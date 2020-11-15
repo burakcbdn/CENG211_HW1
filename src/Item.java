@@ -1,4 +1,4 @@
-
+import java.util.Objects;
 
 public class Item {
 	
@@ -34,6 +34,26 @@ public class Item {
 				'}';
 	}
 
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, category, id);
+	}
+
+
+	@Override
+	public boolean equals(Object otherItem) {
+		if (this == otherItem) return true;
+		if (otherItem == null || getClass() != otherItem.getClass()) return false;
+		Item item = (Item) otherItem;
+		return id == item.id &&
+				Objects.equals(name, item.name) &&
+				Objects.equals(category, item.category);
+	}
+	
+	
+	
+	
 	
 
 	

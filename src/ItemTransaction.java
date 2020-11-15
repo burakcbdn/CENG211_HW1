@@ -40,6 +40,22 @@ public class ItemTransaction {
                 ", itemTransactions=" + Arrays.toString(itemTransactions) +
                 '}';
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ItemTransaction that = (ItemTransaction) o;
+        return Objects.equals(item, that.item) &&
+                Arrays.equals(itemTransactions, that.itemTransactions);
+    }
+    
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(item);
+        result = 31 * result + Arrays.hashCode(itemTransactions);
+        return result;
+    }
 
   
 }
