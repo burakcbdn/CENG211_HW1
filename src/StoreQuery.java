@@ -17,6 +17,8 @@ public class StoreQuery {
         this.numberOfMonths = numberOfMonths;
     }
 
+
+
     private double calculateProfit(Transaction transaction) {
         return (transaction.getSalePrice() - transaction.getPurchasePrice()) * transaction.getNumberOfSales();
     }
