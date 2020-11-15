@@ -44,7 +44,7 @@ public class StoreQuery {
                 storeProfit = 0;
             }
            
-            System.out.println("Most profitable store for the month " + monthNo + " is store " + (mostProfitableStoresForEachMonth[monthNo]+1));
+            System.out.println("Most profitable store for the month " + (monthNo+1) + " is store " + (mostProfitableStoresForEachMonth[monthNo]+1));
             mostProfit = 0;
         }
 
@@ -170,7 +170,7 @@ public class StoreQuery {
 
         }
 
-        System.out.println("Best Seller Item is" + annualSale.getAnnualSale(itemId).getItem());
+        System.out.println("Best Seller Item is " + annualSale.getAnnualSale(itemId).getItem());
     }
 
     public void getMostProfitableItemForSingleSale() {

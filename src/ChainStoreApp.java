@@ -9,7 +9,7 @@ public class ChainStoreApp {
         int numberOfMonths = 12;
         int numberOfStores = 4;
         int numberOfItems;
-
+        
         FileManager itemFileManager = new FileManager("HW1_Items.csv");
         String[][] items = itemFileManager.readFile(1);  //1 is the category Index for items.csv
         
@@ -30,8 +30,8 @@ public class ChainStoreApp {
 
         AnnualSale annualSale = new AnnualSale(numberOfItems);
 
-        ItemTransaction itemTransaction = null;
-        Item item = null ;
+        ItemTransaction itemTransaction;
+        Item item;
 
         for(int itemIdIndex = 1; itemIdIndex < numberOfItems +1; itemIdIndex++) {
 
