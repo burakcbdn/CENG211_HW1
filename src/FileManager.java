@@ -43,9 +43,9 @@ public class FileManager {
             FileReader fileReader = new FileReader(filePath);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             while ((line = bufferedReader.readLine()) != null) {
-                //Getting the category of the item
+                //Getting the itemID
                 index = Integer.parseInt(String.valueOf(line.split(",")[categoryIndex]));
-                //Placing according to its category
+                //Placing according to its ID
                 lines[index] = line.split(",");
 
             }
